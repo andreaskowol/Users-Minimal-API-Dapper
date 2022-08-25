@@ -15,8 +15,8 @@ public class UserData : IUserData
         _db = db;
     }
 
-    public Task<IEnumerable<UserModel>> GetUsers() =>
-        _db.LoadData<UserModel, dynamic>("dbo.spUser_GetAll", new { });
+    public async Task<IEnumerable<UserModel>> GetUsers() =>
+        await _db.LoadData<UserModel, dynamic>("dbo.spUser_GetAll", new { });
 
     public async Task<UserModel?> GetUser(int id)
     {
